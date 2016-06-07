@@ -125,9 +125,8 @@ class UI extends JFrame implements ActionListener{
 		}else
 		{			
 			//调用注册方法/先检查要注册的用户名是否存在
-//			 SQLserver ss=new SQLserver();
-//	    	 ss.ConnectSQL();
-//	    	 ss.ZhuceVerify(jtf1.getText());
+
+             //单例模式的应用
 			SQLserver ss=SQLserver.getInstance();
 	    	 ss.ConnectSQL();
 	    	 ss.ZhuceVerify(jtf1.getText());

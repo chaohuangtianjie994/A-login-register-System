@@ -104,6 +104,7 @@ public class UserRegister extends JFrame implements ActionListener{
 	//登录方法
 	public void login() {
 		
+		//单例模式
 		SQLserver s=SQLserver.getInstance();
 		s.ConnectSQL();
 		s.SQLverify(jtf.getText(), jpf.getText());
