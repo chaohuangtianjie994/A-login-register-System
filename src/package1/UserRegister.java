@@ -80,6 +80,10 @@ public class UserRegister extends JFrame implements ActionListener{
 			System.exit(0);
 		}else if(e.getActionCommand()=="登录")
 		{
+			//进行判断，为空则不进行登录操作。
+			if(jtf.getText().isEmpty()||jpf.getText().isEmpty())
+				JOptionPane.showMessageDialog(null, "请输入用户名和密码", "提示信息", JOptionPane.WARNING_MESSAGE);
+			else
 			//调用登录方法
 			this.login();
 		}else if(e.getActionCommand()=="注册")
@@ -104,7 +108,6 @@ public class UserRegister extends JFrame implements ActionListener{
 	//登录方法
 	public void login() {
 		
-		//单例模式
 		SQLserver s=SQLserver.getInstance();
 		s.ConnectSQL();
 		s.SQLverify(jtf.getText(), jpf.getText());
