@@ -12,6 +12,9 @@ import java.sql.*;
 
 public class UserRegister extends JFrame implements ActionListener{
 	
+	//门面模式对象
+	Facade fcd=new Facade();
+	
 	//定义登录界面的组件
 		JButton jb1,jb2,jb3=null;
 		JRadioButton jrb1,jrb2=null;
@@ -108,9 +111,13 @@ public class UserRegister extends JFrame implements ActionListener{
 	//登录方法
 	public void login() {
 		
-		SQLserver s=SQLserver.getInstance();
-		s.ConnectSQL();
-		s.SQLverify(jtf.getText(), jpf.getText());
+//		SQLserver s=SQLserver.getInstance();
+//		s.ConnectSQL();
+//		s.SQLverify(jtf.getText(), jpf.getText());
+		
+		//使用门面模式
+		fcd.ConnectSQL();
+		fcd.SQLverify(jtf.getText(), jpf.getText());
 		
 		this.jtf.setText("");
 		this.jpf.setText("");

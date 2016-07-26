@@ -5,12 +5,15 @@ import java.awt.*;
 
 import javax.swing.*;
 
+
 /*
  * 注册界面。
  */
 class UI extends JFrame implements ActionListener{
 	
-
+	
+     //门面类对象
+	Facade fcd=new Facade();
 
 	//定义组件
 	JFrame jf;
@@ -125,11 +128,17 @@ class UI extends JFrame implements ActionListener{
 		}else
 		{			
 			//调用注册方法/先检查要注册的用户名是否存在
-
-             //单例模式的应用
-			SQLserver ss=SQLserver.getInstance();
-	    	 ss.ConnectSQL();
-	    	 ss.ZhuceVerify(jtf1.getText());
+//			 SQLserver ss=new SQLserver();
+//	    	 ss.ConnectSQL();
+//	    	 ss.ZhuceVerify(jtf1.getText());
+			
+//			SQLserver ss=SQLserver.getInstance();
+//	    	 ss.ConnectSQL();
+//	    	 ss.ZhuceVerify(jtf1.getText());
+			
+			//使用门面模式
+			fcd.ConnectSQL();
+			fcd.zhuceverify(jtf1.getText());
 	    	 
 //			ss.UserRegis(jtf1.getText(),jtf2.getText(),jtf3.getText(), jtf4.getText());
 		    this.jtf1.setText("");
